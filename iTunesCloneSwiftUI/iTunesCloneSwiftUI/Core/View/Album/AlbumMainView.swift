@@ -10,15 +10,17 @@ import SwiftUI
 struct AlbumMainView: View {
     @StateObject var viewModel = AlbumListViewModel()
     var body: some View {
-        Group{
-            if viewModel.searchTearm.isEmpty {
-                PlaceholderSuggestionView(searchTearm: $viewModel.searchTearm)
-            }else{
-                AlbumListView(viewModel: viewModel)
+        NavigationView {
+            Group{
+                if viewModel.searchTearm.isEmpty {
+                    PlaceholderSuggestionView(searchTearm: $viewModel.searchTearm)
+                }else{
+                    AlbumListView(viewModel: viewModel)
+                }
             }
-        }
-        .searchable(text: $viewModel.searchTearm)
+            .searchable(text: $viewModel.searchTearm)
             .listStyle(.plain)
+        }
     }
 }
 
@@ -28,7 +30,7 @@ struct PlaceholderSuggestionView: View {
     @Binding var searchTearm: String
     var body: some View {
         VStack(spacing: 28){
-            Text("Suggsetions")
+            Text("Suggestions")
                 .font(.largeTitle)
             ForEach(suggestionList, id: \.hashValue) { item in
                 Button {

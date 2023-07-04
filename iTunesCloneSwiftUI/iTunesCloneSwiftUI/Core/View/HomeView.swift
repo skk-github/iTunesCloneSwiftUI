@@ -9,13 +9,23 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        NavigationView {
-            VStack {
-                AlbumMainView(viewModel: AlbumListViewModel())
-                    
-            }
-            .padding()
+        
+        TabView {
+           
+            AlbumMainView(viewModel: AlbumListViewModel())
+                .tabItem {
+                    Label(SearchEntityType.album.name(),systemImage: "record.circle.fill")
+                        
+                }
+            MovieMainView(viewModel: MovieListViewModel())
+                .tabItem {
+                    Label(SearchEntityType.movie.name(),systemImage: "film")
+                }
+             
+            
         }
+        
+        
         
     }
 }

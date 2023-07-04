@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		6B616BA32A53D7E600903A1D /* AlbumMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B616BA22A53D7E600903A1D /* AlbumMainView.swift */; };
+		6B616BA52A53F14900903A1D /* AlbumRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B616BA42A53F14900903A1D /* AlbumRowView.swift */; };
+		6B616BA82A53FC2B00903A1D /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B616BA72A53FC2B00903A1D /* MovieModel.swift */; };
+		6B616BAA2A53FC6800903A1D /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B616BA92A53FC6800903A1D /* MovieListViewModel.swift */; };
+		6B616BAC2A53FC9000903A1D /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B616BAB2A53FC9000903A1D /* MovieListView.swift */; };
+		6B616BAE2A53FCB000903A1D /* MovieMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B616BAD2A53FCB000903A1D /* MovieMainView.swift */; };
 		6BB3DC3D2A52AAE200FD8E4D /* iTunesCloneSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB3DC3C2A52AAE200FD8E4D /* iTunesCloneSwiftUIApp.swift */; };
 		6BB3DC3F2A52AAE200FD8E4D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB3DC3E2A52AAE200FD8E4D /* HomeView.swift */; };
 		6BB3DC412A52AAE400FD8E4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BB3DC402A52AAE400FD8E4D /* Assets.xcassets */; };
@@ -22,6 +27,11 @@
 
 /* Begin PBXFileReference section */
 		6B616BA22A53D7E600903A1D /* AlbumMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumMainView.swift; sourceTree = "<group>"; };
+		6B616BA42A53F14900903A1D /* AlbumRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumRowView.swift; sourceTree = "<group>"; };
+		6B616BA72A53FC2B00903A1D /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
+		6B616BA92A53FC6800903A1D /* MovieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
+		6B616BAB2A53FC9000903A1D /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
+		6B616BAD2A53FCB000903A1D /* MovieMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieMainView.swift; sourceTree = "<group>"; };
 		6BB3DC392A52AAE200FD8E4D /* iTunesCloneSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesCloneSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BB3DC3C2A52AAE200FD8E4D /* iTunesCloneSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesCloneSwiftUIApp.swift; sourceTree = "<group>"; };
 		6BB3DC3E2A52AAE200FD8E4D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -50,9 +60,19 @@
 			isa = PBXGroup;
 			children = (
 				6BB3DC532A52ACF300FD8E4D /* AlbumListView.swift */,
+				6B616BA42A53F14900903A1D /* AlbumRowView.swift */,
 				6B616BA22A53D7E600903A1D /* AlbumMainView.swift */,
 			);
 			path = Album;
+			sourceTree = "<group>";
+		};
+		6B616BA62A53FBFF00903A1D /* Movie */ = {
+			isa = PBXGroup;
+			children = (
+				6B616BAB2A53FC9000903A1D /* MovieListView.swift */,
+				6B616BAD2A53FCB000903A1D /* MovieMainView.swift */,
+			);
+			path = Movie;
 			sourceTree = "<group>";
 		};
 		6BB3DC302A52AAE200FD8E4D = {
@@ -113,6 +133,7 @@
 		6BB3DC4D2A52AB5B00FD8E4D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6B616BA62A53FBFF00903A1D /* Movie */,
 				6B616BA12A53D7A100903A1D /* Album */,
 				6BB3DC3E2A52AAE200FD8E4D /* HomeView.swift */,
 			);
@@ -123,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				6BB3DC552A52AD0C00FD8E4D /* AlbumListViewModel.swift */,
+				6B616BA92A53FC6800903A1D /* MovieListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -131,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				6BB3DC512A52ACB200FD8E4D /* AlbumListModel.swift */,
+				6B616BA72A53FC2B00903A1D /* MovieModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -222,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B616BA82A53FC2B00903A1D /* MovieModel.swift in Sources */,
 				6B616BA32A53D7E600903A1D /* AlbumMainView.swift in Sources */,
 				6BB3DC3F2A52AAE200FD8E4D /* HomeView.swift in Sources */,
 				6BB3DC5C2A52B00100FD8E4D /* SearchEntityType.swift in Sources */,
@@ -229,8 +253,12 @@
 				6BB3DC592A52ADE600FD8E4D /* ApiCallManager.swift in Sources */,
 				6BB3DC542A52ACF300FD8E4D /* AlbumListView.swift in Sources */,
 				6BB3DC5E2A52B0DC00FD8E4D /* ApiError.swift in Sources */,
+				6B616BAE2A53FCB000903A1D /* MovieMainView.swift in Sources */,
 				6BB3DC3D2A52AAE200FD8E4D /* iTunesCloneSwiftUIApp.swift in Sources */,
 				6BB3DC562A52AD0C00FD8E4D /* AlbumListViewModel.swift in Sources */,
+				6B616BAC2A53FC9000903A1D /* MovieListView.swift in Sources */,
+				6B616BA52A53F14900903A1D /* AlbumRowView.swift in Sources */,
+				6B616BAA2A53FC6800903A1D /* MovieListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
