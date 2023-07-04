@@ -11,7 +11,7 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             VStack {
-                AlbumListView(viewModel: AlbumListViewModel())
+                AlbumMainView(viewModel: AlbumListViewModel())
                     
             }
             .padding()

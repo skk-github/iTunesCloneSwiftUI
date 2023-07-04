@@ -9,10 +9,18 @@ import Foundation
 import Combine
 
 
+enum PaginationLoadingStatus: Equatable {
+    case canLoad, loading, loadedAllPages
+    case error(String)
+}
+
+
+
 class AlbumListViewModel: ObservableObject {
     
     @Published var searchTearm : String = ""
     @Published var albumList: [AlbumItem] = []
+    @Published var paginationStatus: PaginationLoadingStatus = .canLoad
     lazy var apiMangaer = ApiCallManager()
     let limit = 20
     var pageNo = 0
@@ -27,28 +35,38 @@ class AlbumListViewModel: ObservableObject {
                 guard let self = self else {return}
                 self.albumList = []
                 self.pageNo = 0
+                self.paginationStatus = .canLoad
                 self.fetchAlbum()
             }.store(in: &subscription)
     }
     
     
     func fetchAlbum() {
+        guard !searchTearm.isEmpty else {return}
         let offset = pageNo * limit
         let url = ApiCallManager().genereateUrl(entityType: .album, keyword: searchTearm, offset: offset, limit: limit)
-        
+        paginationStatus = .loading
         Task {
             do{
+                
                 let album: Album = try await apiMangaer.fetchRecords(url: url)
                 
                 pageNo += 1
                 await MainActor.run(body: {
-                    albumList = album.results
+                    paginationStatus = album.results.count < limit ? .loadedAllPages : .canLoad
+                    albumList += album.results
                 })
             }catch{
                 if let apiError = error as? ApiError {
+                    await MainActor.run(body: {
+                        paginationStatus = .error(apiError.localizedDescription)
+                    })
                     print(apiError.description)
                 }else{
-                    print(error.localizedDescription)
+                    await MainActor.run(body: {
+                        paginationStatus = .error(error.localizedDescription)
+                    })
+                    
                 }
                     
             }
