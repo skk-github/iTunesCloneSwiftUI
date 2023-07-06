@@ -8,20 +8,32 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @StateObject private var albumListVM =  AlbumListViewModel()
+    @StateObject private var movieListVM = MovieListViewModel()
+    
+    @StateObject private var viewModel = HomeViewModel()
+    
     var body: some View {
         
         TabView {
-           
-            AlbumMainView(viewModel: AlbumListViewModel())
+            
+            
+            SearchAllView(viewModel: viewModel.searchAllVM)
+                .tabItem {
+                    Label(SearchEntityType.all.name(),systemImage: "magnifyingglass")
+                        
+                }
+            AlbumMainView(viewModel: viewModel.albumListVM)
                 .tabItem {
                     Label(SearchEntityType.album.name(),systemImage: "record.circle.fill")
                         
                 }
-            MovieMainView(viewModel: MovieListViewModel())
+            MovieMainView(viewModel: viewModel.movieListVM)
                 .tabItem {
                     Label(SearchEntityType.movie.name(),systemImage: "film")
                 }
-             
+                
             
         }
         

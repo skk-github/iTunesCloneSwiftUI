@@ -68,7 +68,7 @@ class MovieListViewModel: ObservableObject {
     static func sampleVM() -> MovieListViewModel {
         
         let vm = MovieListViewModel()
-        vm.movieList = [MovieItem.sampleItem()]
+        vm.movieList = [MovieItem.sampleItem(),MovieItem.sampleItem(),MovieItem.sampleItem()]
         return vm
     }
 }

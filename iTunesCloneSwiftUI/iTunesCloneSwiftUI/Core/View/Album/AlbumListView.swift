@@ -9,14 +9,12 @@ import SwiftUI
 
 struct AlbumListView: View {
     
-    @StateObject var viewModel = AlbumListViewModel()
+    @ObservedObject var viewModel: AlbumListViewModel
     
     var body: some View {
         List{
             ForEach(viewModel.albumList) { album in
-                HStack{
-                    Text(album.collectionName ?? "")
-                }
+                AlbumRowView(albumItem: album)
             }
             
             
@@ -45,6 +43,7 @@ struct AlbumListView: View {
             
             
         }
+        .listStyle(.plain)
     }
     
 }

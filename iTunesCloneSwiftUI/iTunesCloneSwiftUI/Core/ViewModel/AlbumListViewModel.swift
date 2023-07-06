@@ -76,7 +76,7 @@ class AlbumListViewModel: ObservableObject {
     
     static func sampleVM() -> AlbumListViewModel {
         let vm = AlbumListViewModel()
-        vm.albumList = [AlbumItem.sampleItem()]
+        vm.albumList = [AlbumItem.sampleItem(),AlbumItem.sampleItem(),AlbumItem.sampleItem()]
         return vm
     }
     

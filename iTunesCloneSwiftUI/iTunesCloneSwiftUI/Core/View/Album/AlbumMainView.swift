@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AlbumMainView: View {
-    @StateObject var viewModel = AlbumListViewModel()
+    @ObservedObject var viewModel: AlbumListViewModel
     var body: some View {
         NavigationView {
             Group{

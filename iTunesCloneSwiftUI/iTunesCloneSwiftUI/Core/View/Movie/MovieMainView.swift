@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MovieMainView: View {
     
-    @StateObject var viewModel = MovieListViewModel()
+    @ObservedObject var viewModel: MovieListViewModel
     
     
     var body: some View {
@@ -30,6 +30,6 @@ struct MovieMainView: View {
 
 struct MovieMainView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieMainView()
+        MovieMainView(viewModel: MovieListViewModel())
     }
 }

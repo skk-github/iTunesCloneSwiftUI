@@ -23,31 +23,21 @@ struct AlbumRowView: View {
                     .background(Color.gray)
             }
 
-            VStack{
+            VStack(alignment:.leading){
                 Text(albumItem.collectionName ?? "")
-                
+                    .font(.title3)
+                Text(albumItem.artistName ?? "")
+                    .font(.caption)
+                    .foregroundColor(Color.gray)
             }
             Spacer()
+            PriceButtonView(urlStr: albumItem.collectionViewURL ?? "", price: "\(albumItem.collectionPrice ?? 0.0)")
         }
+        .padding(.horizontal, 5)
+        
     }
     
-    func getImage() -> UIImage {
-        guard let imageURL = URL(string: albumItem.artworkUrl100 ?? "") else {
-            return UIImage()
-        }
-        
-        Task{
-            do{
-                let (data, _) = try await URLSession.shared.data(from: imageURL)
-                return UIImage(data: data) ?? UIImage()
-            }catch{
-                return UIImage()
-            }
-            
-        
-        }
-        return UIImage()
-    }
+   
 }
 
 struct AlbumRowView_Previews: PreviewProvider {
